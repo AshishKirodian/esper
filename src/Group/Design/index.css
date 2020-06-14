@@ -1,0 +1,22 @@
+.group-container {
+    background-color: #3162B5;
+    padding: 2%;
+    margin-top: 1%;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 3px 4px rgba(0,0,0,.25);
+}
+.group-container:hover {
+    background-color: #3137b5;
+}
+.number {
+    font-size: 100px;
+    opacity: 0.6;
+    color: white;
+}
+.number sub {
+    font-size: 14px;
+}
+.group-name {
+    color: white;
+}

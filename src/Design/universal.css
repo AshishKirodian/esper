@@ -1,0 +1,26 @@
+body {
+    background-color: white;
+}
+
+.button-layout {
+    border-radius: 4px;
+    border: solid 1px #e6e6e6;
+    background-color: #ffffff;
+    padding: 4% 8% 4% 8%;
+    cursor: pointer;
+}
+.esper-icon {
+    font-size: 28px;
+    color: #3162B5;
+}
+.options-layout {
+    position: absolute;
+    right: 4%;
+}
+
+@media only screen and (max-width: 600px) {
+    .ind-device .overlay {
+    right: 37%;
+    bottom: -26%;
+   }
+  }

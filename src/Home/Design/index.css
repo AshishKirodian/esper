@@ -1,0 +1,29 @@
+.authorize-container {
+    margin-top: 10%;
+}
+.next-icon {
+    font-size: 26px;
+    cursor: pointer;
+    color: #3162B5;
+}
+.next-icon:hover {
+    font-size: 25px;
+}
+.esper-title {
+    color: #3162B5;
+}
+.right-fold {
+    margin-top: 10%;
+}
+#disable-arrow {
+    color: grey;
+    opacity: 0.6;
+}
+.danger-text {
+    font-size: 18px;
+    color: #aa1f1fad;
+}
+.welcome-text {
+    color: green;
+    font-size: 18px;
+}

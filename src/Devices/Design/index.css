@@ -1,0 +1,40 @@
+.ind-device {
+    /* background: url('./device.png'); */
+}
+.ind-device img {
+    height: auto;
+    width: 50%;
+}
+.device-name {
+    color: white;
+}
+.device-model {
+    color: white;
+}
+.device-ram {
+    color: white;
+}
+.device-software {
+    color: white;
+}
+.overlay {
+    position: absolute;
+    z-index: 2;
+    right: 6%;
+    bottom: 0;
+    background-color: #343a40ed;
+    box-shadow: 0 3px 4px rgba(0,0,0,.25);
+    padding: 3%;
+    border-radius: 10px;
+}
+.overlay:hover {
+    background-color: #343a40;
+}
+.info-icon {
+    margin-right: 4%;
+}
+.device-title {
+    text-align: center;
+    font-size: 24px;
+    color: #3162B5;
+}
