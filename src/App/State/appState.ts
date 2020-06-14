@@ -10,7 +10,7 @@ export default interface AppState {
 export function defaultAppState():AppState {
     return {
         accessToken: getTokenFromStorage(),
-        isLoggedIn: false,
+        isLoggedIn: getTokenFromStorage().length > 0,
         enterpriseName: '',
         enterpriseId: getEnterpriseIDFromStorage()
     }

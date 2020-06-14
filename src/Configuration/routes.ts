@@ -8,6 +8,13 @@ export interface RouteInterface {
     exact: boolean;
 }
 
+export const FREEROUTES: RouteInterface[] = [
+    {
+        path: '/',
+        component: Home,
+        exact: true
+    }
+];
 export const ROUTES: RouteInterface[] = [
     {
         path: '/devices',
@@ -17,11 +24,6 @@ export const ROUTES: RouteInterface[] = [
     {
         path: '/groups',
         component: Group,
-        exact: true
-    },
-    {
-        path: '/',
-        component: Home,
         exact: true
     }
 ];

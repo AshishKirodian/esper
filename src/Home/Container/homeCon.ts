@@ -3,6 +3,7 @@ import Home from "../Component/home";
 import StoreTree from "../../Utils/MainReducer/mainReducer";
 import AppActionGen from "../../App/Actions/actionGen";
 export function mapStateToProps(appState: StoreTree, ownProps: any) {
+    console.log(appState.app.isLoggedIn);
     return {
         isLoggedIn: appState.app.isLoggedIn,
         enterpriseName: appState.app.enterpriseName,

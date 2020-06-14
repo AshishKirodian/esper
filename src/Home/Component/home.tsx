@@ -11,7 +11,7 @@ interface Props {
 }
 
 export default function Home(props: Props) {
-    let { history, getEntInfo, enterpriseName, enterpriseId, accessToken } = props;
+    let { history, getEntInfo, enterpriseName, enterpriseId, accessToken, isLoggedIn } = props;
     return (
         <div className="row mt-5">
             <div className="col-md-6">
@@ -25,7 +25,7 @@ export default function Home(props: Props) {
                 </div>
                 <div className="row">
                     <div className="col-md-12">
-                        <AuthorizeUser accessToken={accessToken} enterpriseId={enterpriseId} enterpriseName={enterpriseName} getEntInfo={getEntInfo} history={history} />
+                        <AuthorizeUser isLoggedIn={isLoggedIn} accessToken={accessToken} enterpriseId={enterpriseId} enterpriseName={enterpriseName} getEntInfo={getEntInfo} history={history} />
                     </div>
                 </div>
             </div>

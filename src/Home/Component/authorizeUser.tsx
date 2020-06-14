@@ -7,6 +7,7 @@ interface Props {
     enterpriseName: string;
     enterpriseId: string;
     accessToken: string;
+    isLoggedIn: boolean;
     getEntInfo: (id: string, token: string) => void;
 }
 interface State {
@@ -51,7 +52,7 @@ export default class AuthorizeUser extends React.Component<Props, State> {
         if (stage === 2 && enterpriseId.length > 0 && accessToken.length > 0) {
             this.submit();
         }
-        if (stage >= 0 && stage <= 2) {
+        if (stage >= 0 && stage <= 3) {
             this.setState({ stage: stage, mode: mode === 'right' ? 'slide-in-right' : 'slide-in-left', pulsate: false });
         }
         if (accessToken.length === 0 && enterpriseId.length === 0 && stage === 2) {
@@ -60,18 +61,18 @@ export default class AuthorizeUser extends React.Component<Props, State> {
 
     }
     componentWillReceiveProps(nextProps: Props) {
-        let { history } = nextProps;
-        if (nextProps.enterpriseName.length > 0) {
-            this.setState({ stage: 3 });
+        let { history, isLoggedIn } = nextProps;
+        if (nextProps.enterpriseName.length > 0 && isLoggedIn) {
             setTimeout(() => {
                 history.push('/devices')
             }, 3000);
         }
-        
+        this.setState({ stage: 3 });
+
     }
     switchRender() {
         let { stage, accessToken, enterpriseId, mode } = this.state;
-        let { enterpriseName } = this.props;
+        let { enterpriseName, isLoggedIn } = this.props;
         switch (stage) {
             case 0: {
                 return (
@@ -106,14 +107,33 @@ export default class AuthorizeUser extends React.Component<Props, State> {
 
             }
             case 3: {
-                return (
-                    <div className="row">
-                        <div className={'col-md-12 welcome-text ' + mode}>
-                            Welcome {' ' + enterpriseName} <br />
-                            We will be redirecting you soon..
+                if (isLoggedIn) {
+                    return (
+                        <div className="row">
+                            <div className={'col-md-12 welcome-text ' + mode}>
+                                Welcome {' ' + enterpriseName} <br />
+                                We will be redirecting you soon..
+                            </div>
                         </div>
-                    </div>
-                )
+                    );
+                } else {
+                    return (
+                        <div className="row">
+                            <div className={'col-md-12 ' + mode}>
+                                <div className="row">
+                                    <div className="danger-text" >
+                                        Failed to log you in. Please check your credentials.
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-md-12">
+                                        <a href="/">Go Back</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    );
+                }
             }
         }
     }
